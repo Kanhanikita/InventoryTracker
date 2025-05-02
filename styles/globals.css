@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+ html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+@layer base {
+  :root {
+    /* Light Mode - Ice Cream Theme */
+    --background:  50 90% 90%; /* Creamy white (#F8F5F1) */
+    --foreground: 240 10% 3.9%; /* Dark Gray - kept for readability */
+    --card: 48 100% 97%; /* Creamy white */
+    --card-foreground: 240 10% 3.9%; /* Dark Gray */
+    --popover: 48 100% 97%; /* Creamy white */
+    --popover-foreground: 240 10% 3.9%; /* Dark Gray */
+    --primary: 127 30% 80%; /* Light pastel blue (#A7D1AB) - Adjusted for better visibility as primary */
+    --primary-foreground: 127 30% 10%; /* Darker shade of blue for contrast */
+    --secondary: 48 100% 90%; /* Lighter Creamy White for subtle secondary elements */
+    --secondary-foreground: 240 10% 20%; /* Slightly lighter dark gray */
+    --muted: 48 80% 95%; /* Very light creamy white */
+    --muted-foreground: 240 5% 60%; /* Softer gray */
+    --accent: 4 76% 58%; /* Strawberry Red (#E34234) */
+    --accent-foreground: 0 0% 98%; /* Light Gray/White for contrast on red */
+    --destructive: 0 70% 60%; /* A slightly softer red for destructive actions */
+    --destructive-foreground: 0 0% 98%; /* Light Gray */
+    --border: 48 30% 85%; /* Light Creamy Border */
+    --input: 48 30% 88%; /* Slightly darker creamy input background */
+    --ring: 4 76% 58%; /* Strawberry Red for focus rings */
+    --chart-1: 127 30% 70%; /* Lighter Pastel Blue */
+    --chart-2: 4 76% 65%;  /* Lighter Strawberry Red */
+    --chart-3: 30 80% 75%; /* Light Peach */
+    --chart-4: 60 70% 70%;  /* Light Yellow */
+    --chart-5: 200 50% 75%; /* Light Sky Blue */
+    --radius: 0.5rem;
+    /* Sidebar colors can match, but keeping defaults for potential other uses */
+    --sidebar-background: var(--background);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+  }
+
+}
+
