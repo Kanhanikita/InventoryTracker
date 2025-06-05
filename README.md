@@ -33,7 +33,8 @@ A web-based inventory management application built with **Next.js**, **Firebase*
 - **Tailwind CSS** – Utility-first CSS framework for styling  
 - **JavaScript (ES6+)** – Clean, modern, maintainable code
 ---
-## Sneek Peak
+## Sneak Peak
+
 ![image](https://github.com/user-attachments/assets/24e685d6-f98f-4352-b0f0-489d27858db7)
 ![image](https://github.com/user-attachments/assets/9bbe3b87-c48f-4cc7-bd95-2b624014e5e0)
 ![image](https://github.com/user-attachments/assets/7ccd0e23-d26d-4e07-8bc4-ff138f726b67)
