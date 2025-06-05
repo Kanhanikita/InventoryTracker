@@ -1,31 +1,34 @@
-Ice Cream Ingredients Inventory Tracker
-A web-based inventory management application built with Next.js and Firebase, designed to help users efficiently track, manage, and monitor ice cream ingredients. Stay on top of your stock levels with real-time updates and low inventory alerts — ensuring you never run out of essentials.
+# 🍦 Ice Cream Ingredients Inventory Tracker
 
-🚀 Features
-Ingredient Management
-Add, update, and delete ingredients from your inventory with ease.
+A web-based inventory management application built with **Next.js**, **Firebase**, and **Tailwind CSS**, designed to help you efficiently manage and monitor your ice cream ingredients. Track stock levels in real-time, receive low inventory alerts, and stay organized with a responsive and intuitive interface.
 
-Real-Time Syncing
-All data changes are synced in real-time across all devices using Firebase's Cloud Firestore.
+---
 
-Low Stock Alerts
-Set custom stock thresholds and get notified when inventory levels fall below them.
+## 🔑 Key Features
 
-Search & Filter
-Quickly search for ingredients or filter by category for faster access.
+- **🧾 Ingredient Management**  
+  Add, edit, and remove ingredients from your inventory.
 
-User Authentication
-Secure login and access control powered by Firebase Authentication.
+- **📡 Real-Time Updates**  
+  Changes are synced instantly across devices using Firebase Cloud Firestore.
 
-Responsive Design
-Fully responsive UI that adapts to desktop, tablet, and mobile devices.
+- **⚠️ Low Stock Notifications**  
+  Set custom thresholds and get alerted when ingredients run low.
 
-🛠️ Tech Stack
-Next.js – React-based framework for server-rendered and statically generated web applications.
+- **🔍 Search & Filter**  
+  Easily search or filter ingredients by category for quick navigation.
 
-Firebase – Backend services including Firestore (real-time DB), Authentication, and Hosting.
+- **🔐 User Authentication**  
+  Secure login and access control with Firebase Authentication.
 
-Tailwind CSS – Utility-first CSS framework for modern, responsive UI design.
+- **📱 Responsive Design**  
+  Fully responsive UI that works seamlessly on desktop, tablet, and mobile.
 
-JavaScript (ES6+) – Clean and maintainable code using modern JavaScript practices.
+---
 
+## 🛠️ Technologies Used
+
+- **Next.js** – React framework for SSR and static site generation  
+- **Firebase** – Cloud Firestore, Authentication, and Hosting  
+- **Tailwind CSS** – Utility-first CSS framework for styling  
+- **JavaScript (ES6+)** – Clean, modern, maintainable code
