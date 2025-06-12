@@ -1,18 +1,6 @@
 import { useEffect, useState } from "react";
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
-
-// Firebase config (keep sensitive values in .env.local)
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  // include other Firebase config fields if needed
-};
-
-// Initialize Firebase and Firestore
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { collection, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from "../lib/firebase";  // <-- import from lib
 
 export default function Inventory() {
   const [items, setItems] = useState([]);
@@ -26,9 +14,9 @@ export default function Inventory() {
       }));
       setItems(fetchedItems);
     }
-
     fetchItems();
   }, []);
+
 
   const updateQuantity = async (id, newQuantity) => {
     const itemRef = doc(db, "items", id);
