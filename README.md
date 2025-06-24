@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍦 Ice Cream Ingredients Inventory Tracker
 
-## Getting Started
+A web-based inventory management application built with **Next.js**, **Firebase**, and **Tailwind CSS**, designed to help you efficiently manage and monitor your ice cream ingredients. Track stock levels in real-time, receive low inventory alerts, and stay organized with a responsive and intuitive interface.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔑 Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **🧾 Ingredient Management**  
+  Add, edit, and remove ingredients from your inventory.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **📡 Real-Time Updates**  
+  Changes are synced instantly across devices using Firebase Cloud Firestore.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **⚠️ Low Stock Notifications**  
+  Set custom thresholds and get alerted when ingredients run low.
 
-## Learn More
+- **🔍 Search & Filter**  
+  Easily search or filter ingredients by category for quick navigation.
 
-To learn more about Next.js, take a look at the following resources:
+- **🔐 User Authentication**  
+  Secure login and access control with Firebase Authentication.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **📱 Responsive Design**  
+  Fully responsive UI that works seamlessly on desktop, tablet, and mobile.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js** – React framework for SSR and static site generation  
+- **Firebase** – Cloud Firestore, Authentication, and Hosting  
+- **Tailwind CSS** – Utility-first CSS framework for styling  
+- **JavaScript (ES6+)** – Clean, modern, maintainable code
+---
+## Sneak Peak
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![image](https://github.com/user-attachments/assets/24e685d6-f98f-4352-b0f0-489d27858db7)
+![image](https://github.com/user-attachments/assets/9bbe3b87-c48f-4cc7-bd95-2b624014e5e0)
+![image](https://github.com/user-attachments/assets/7ccd0e23-d26d-4e07-8bc4-ff138f726b67)
