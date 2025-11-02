@@ -1,4 +1,4 @@
-# 🍦 Ice Cream Ingredients Inventory Tracker
+# 🍦 Trachonova Intelligence
 
 A web-based inventory management application built with **Next.js**, **Firebase**, and **Tailwind CSS**, designed to help you efficiently manage and monitor your ice cream ingredients. Track stock levels in real-time, receive low inventory alerts, and stay organized with a responsive and intuitive interface.
 
@@ -31,7 +31,7 @@ A web-based inventory management application built with **Next.js**, **Firebase*
 - **Next.js** – React framework for SSR and static site generation  
 - **Firebase** – Cloud Firestore, Authentication, and Hosting  
 - **Tailwind CSS** – Utility-first CSS framework for styling  
-- **JavaScript (ES6+)** – Clean, modern, maintainable code
+- **JavaScript ** – Clean, modern, maintainable code
 ---
 ## Sneak Peak
 
