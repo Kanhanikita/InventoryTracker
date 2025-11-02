@@ -1,4 +1,4 @@
-# 🍦 Trachonova Intelligence
+# 🍦 TrackNova Intelligence
 
 A web-based inventory management application built with **Next.js**, **Firebase**, and **Tailwind CSS**, designed to help you efficiently manage and monitor your ice cream ingredients. Track stock levels in real-time, receive low inventory alerts, and stay organized with a responsive and intuitive interface.
 
