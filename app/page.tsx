@@ -63,9 +63,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-purple-50 text-center relative">
       <div className="flex flex-col items-center justify-center h-screen">
         <Image src="/ice-cream-icon.png" alt="InventoryTracker Logo" width={100} height={100} />
-        <h1 className="text-4xl font-bold text-purple-800 mt-4">Welcome to InventoryTracker</h1>
+        <h1 className="text-4xl font-bold text-purple-800 mt-4">Welcome to TrackNova Intelligence!</h1>
         <p className="text-purple-700 mt-2 max-w-md">
-          Keep track of all your ice cream ingredients with ease — efficient, colorful, and simple!
+          Keep track of all your ingredients with ease — efficient, colorful, and simple!
         </p>
         <a
           href="#inventory"
@@ -78,7 +78,7 @@ export default function HomePage() {
       <div id="inventory" className="bg-yellow-100 px-6 py-10 flex flex-col items-center">
         <div className="flex items-center space-x-4 mb-4">
           <Image src="/ice-cream-icon.png" alt="Icon" width={50} height={50} />
-          <h2 className="text-3xl font-bold text-purple-700">InventoryTracker</h2>
+          <h2 className="text-3xl font-bold text-purple-700">TrackNova Intelligence</h2>
         </div>
         <div className="bg-yellow-50 p-6 rounded-xl shadow max-w-xl w-full">
           <h3 className="text-2xl font-bold text-purple-700 mb-4">Add New Ingredient</h3>
