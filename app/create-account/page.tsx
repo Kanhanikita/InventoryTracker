@@ -1,11 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/firebase";
 import Link from "next/link";
-import { signInWithPopup } from "firebase/auth";
-import { googleProvider } from "@/firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "@/firebase";
 
 export default function CreateAccountPage() {
   const router = useRouter();
@@ -18,18 +16,30 @@ export default function CreateAccountPage() {
   const handleCreateAccount = async () => {
     setError(null);
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match!");
-      return;
-    }
+    if (!email.trim()) return setError("Please enter an email.");
+    if (!password) return setError("Please enter a password.");
+    if (password !== confirmPassword) return setError("Passwords do not match!");
 
     try {
       setLoading(true);
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert("Account created successfully!");
+      await createUserWithEmailAndPassword(auth, email.trim(), password);
+      // Success → back to login
       router.push("/login");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to create account.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogle = async () => {
+    setError(null);
+    try {
+      setLoading(true);
+      await signInWithPopup(auth, googleProvider);
+      router.push("/inventory");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Google sign-in failed.");
     } finally {
       setLoading(false);
     }
@@ -46,6 +56,8 @@ export default function CreateAccountPage() {
           className="w-full mb-3 p-3 border rounded text-purple-800"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          autoComplete="email"
+          required
         />
 
         <input
@@ -54,6 +66,9 @@ export default function CreateAccountPage() {
           className="w-full mb-3 p-3 border rounded text-purple-800"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="new-password"
+          required
+          minLength={6}
         />
 
         <input
@@ -62,6 +77,9 @@ export default function CreateAccountPage() {
           className="w-full mb-4 p-3 border rounded text-purple-800"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          autoComplete="new-password"
+          required
+          minLength={6}
         />
 
         {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
@@ -74,19 +92,14 @@ export default function CreateAccountPage() {
           {loading ? "Creating Account..." : "Create Account"}
         </button>
 
-<button
-  onClick={async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-      router.push("/inventory"); // go to inventory after success
-    } catch (err: any) {
-      setError(err.message);
-    }
-  }}
-  className="w-full mt-4 px-4 py-3 border border-purple-300 rounded-xl font-semibold text-purple-800 hover:bg-purple-50 hover:cursor-pointer transition"
->
-  Continue with Google
-</button>
+        <button
+          onClick={handleGoogle}
+          disabled={loading}
+          className="w-full mt-4 px-4 py-3 border border-purple-300 rounded-xl font-semibold text-purple-800 hover:bg-purple-50 hover:cursor-pointer transition disabled:opacity-50"
+        >
+          Continue with Google
+        </button>
+
         <p className="text-purple-700 text-sm text-center mt-4">
           Already have an account?{" "}
           <Link href="/login" className="underline hover:cursor-pointer">

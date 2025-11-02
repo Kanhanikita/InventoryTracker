@@ -6,17 +6,20 @@ import { db, auth } from "@/firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import type { Ingredient } from "@/types/ingredient";
+
 
 export default function InventoryPage() {
   const router = useRouter();
 
-  const [ingredients, setIngredients] = useState([
-    { name: "Milk", quantity: 89, unit: "kg" },
-    { name: "Sugar", quantity: 50, unit: "kg" },
-  ]);
+const [ingredients, setIngredients] = useState<Ingredient[]>([
+  { name: "Milk", quantity: 89, unit: "kg" },
+  { name: "Sugar", quantity: 50, unit: "kg" },
+]);
+
   const [newIngredient, setNewIngredient] = useState("");
   const [newQuantity, setNewQuantity] = useState("");
-  const [unit, setUnit] = useState("units");
+  const [unit, setUnit] = useState<Ingredient["unit"]>("units");
   const [confirmDeleteIndex, setConfirmDeleteIndex] = useState<number | null>(null);
   const [deleteClicked, setDeleteClicked] = useState<number | null>(null);
   const [addClicked, setAddClicked] = useState(false);
@@ -113,7 +116,7 @@ export default function InventoryPage() {
           <select
             className="p-3 border rounded text-purple-700"
             value={unit}
-            onChange={(e) => setUnit(e.target.value)}
+            onChange={(e) => setUnit(e.target.value as Ingredient["unit"])}
           >
             <option value="kg">kg</option>
             <option value="liters">liters</option>
@@ -130,7 +133,6 @@ export default function InventoryPage() {
         </button>
       </div>
 
-      {/* Inventory list */}
       <div className="mt-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {ingredients.map((item, index) => (
           <div key={index} className="bg-yellow-50 p-6 rounded-xl shadow text-left">
