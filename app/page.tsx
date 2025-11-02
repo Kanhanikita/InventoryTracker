@@ -74,7 +74,125 @@ export default function HomePage() {
           Enter Inventory →
         </a>
       </div>
+export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
+  // If already logged-in, redirect home
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) router.replace("/");
+    });
+    return () => unsub();
+  }, [router]);
+
+  const loginWithGoogle = async () => {
+    setError(null);
+    setBusy(true);
+    try {
+      await signInWithPopup(auth, googleProvider);
+      router.replace("/");
+    } catch (e: any) {
+      setError(e?.message ?? "Google sign-in failed");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const loginWithEmail = async () => {
+    setError(null);
+    setBusy(true);
+    try {
+      await signInWithEmailAndPassword(auth, email.trim(), password);
+      router.replace("/");
+    } catch (e: any) {
+      setError(e?.message ?? "Email sign-in failed");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const registerWithEmail = async () => {
+    setError(null);
+    setBusy(true);
+    try {
+      await createUserWithEmailAndPassword(auth, email.trim(), password);
+      router.replace("/");
+    } catch (e: any) {
+      setError(e?.message ?? "Registration failed");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-purple-50 px-6">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow p-8">
+        <h1 className="text-3xl font-bold text-purple-800 mb-2">Login</h1>
+        <p className="text-purple-700 mb-6">
+          Sign in to access TrackNova Intelligence.
+        </p>
+
+        {error && (
+          <div className="mb-4 rounded border border-red-200 bg-red-50 p-3 text-red-700">
+            {error}
+          </div>
+        )}
+
+        <div className="space-y-3">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-purple-300"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-purple-300"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
+
+          <button
+            onClick={loginWithEmail}
+            disabled={busy}
+            className="w-full mt-2 px-4 py-3 font-semibold rounded-xl bg-yellow-400 text-purple-900 hover:shadow disabled:opacity-60"
+          >
+            {busy ? "Signing in..." : "Sign in"}
+          </button>
+
+          <button
+            onClick={registerWithEmail}
+            disabled={busy}
+            className="w-full px-4 py-3 font-semibold rounded-xl bg-purple-700 text-white hover:bg-purple-800 disabled:opacity-60"
+          >
+            {busy ? "Creating account..." : "Create account"}
+          </button>
+
+          <div className="relative py-2 text-center text-sm text-purple-600">
+            <span className="px-3 bg-white relative z-10">or</span>
+            <div className="absolute left-0 right-0 top-1/2 h-px bg-purple-200 -z-0" />
+          </div>
+
+          <button
+            onClick={loginWithGoogle}
+            disabled={busy}
+            className="w-full px-4 py-3 font-semibold rounded-xl border border-purple-200 hover:bg-purple-50 disabled:opacity-60"
+          >
+            Continue with Google
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
       <div id="inventory" className="bg-yellow-100 px-6 py-10 flex flex-col items-center">
         <div className="flex items-center space-x-4 mb-4">
           <Image src="/ice-cream-icon.png" alt="Icon" width={50} height={50} />
